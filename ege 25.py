@@ -61,25 +61,35 @@ print()
 #  12??1*56
 #   12??156
 
-numbers = []
-# ? - число от 0 до 9
-for i in range(10):
-    for j in range(10):
-        # Отдельно обработаем случай, где 0 символов вместо *
-        num = int('12' + str(i) + str(j) + '156')
-        if num % 317 == 0:
-            numbers.append(num)
+# numbers = []
+# # ? - число от 0 до 9
+# for i in range(10):
+#     for j in range(10):
+#         # Отдельно обработаем случай, где 0 символов вместо *
+#         num = int('12' + str(i) + str(j) + '156')
+#         if num % 317 == 0:
+#             numbers.append(num)
         
-        # Случаи, где 1 символ вместо *
-        for k in range(10):
-            num = int('12' + str(i) + str(j) + '1' + str(k) + '56')
-            if num % 317 == 0:
-                numbers.append(num)
+#         # Случаи, где 1 символ вместо *
+#         for k in range(10):
+#             num = int('12' + str(i) + str(j) + '1' + str(k) + '56')
+#             if num % 317 == 0:
+#                 numbers.append(num)
 
-# Отсортируем на всякий случай
-numbers.sort()
-for num in numbers:
-    print(num, num // 317)
+# # Отсортируем на всякий случай
+# numbers.sort()
+# for num in numbers:
+#     print(num, num // 317)
+
+# Более простой вариант
+from fnmatch import *
+# Перебираем все числа до верхней планки.
+# Делаем шаг в 317,
+# потому как остальные числа без этого шага просто не будут делиться на 317
+for x in range (0, 10*8, 317):
+    # fnmatch возвращает True, если указанная строка подходит под указанную маску
+    if fnmatch(str(x),'12??1*56'):
+        print(x)
 
 
 print()
