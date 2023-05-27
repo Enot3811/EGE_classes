@@ -2,5 +2,5 @@
     "editor.rulers": [79],
     "python.linting.enabled": false,
     "python.linting.flake8Enabled": false,
-    "cSpell.enabled": false
+    "cSpell.enabled": true
 }
